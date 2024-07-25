@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehmet Karadaş'ın Web Sayfası</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4682b4;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #87cefa;
+            padding: 10px 0;
+        }
+        nav button {
+            background-color: #4682b4;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        nav button:hover {
+            background-color: #5a9bd3;
+        }
+        .content {
+            padding: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        footer {
+            background-color: #4682b4;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mehmet Karadaş'ın Web Sayfası</h1>
+    </header>
+    <nav>
+        <button onclick="showSection('home')">Anasayfa</button>
+        <button onclick="showSection('arduino')">Arduino Serisi</button>
+    </nav>
+    <div id="home" class="content">
+        <h2>Hakkımda</h2>
+        <p>Merhaba! Ben Mehmet Karadaş, 7. sınıf öğrencisiyim ve kodlama yapmayı çok seviyorum. ROBOTECH adında bir kanalım var.</p>
+    </div>
+    <div id="arduino" class="content hidden">
+        <h2>Arduino Serisi</h2>
+        <nav>
+            <button onclick="showArduinoSection('intro')">Giriş</button>
+            <button onclick="showArduinoSection('projects')">Projeler</button>
+            <button onclick="showArduinoSection('tutorials')">Eğitimler</button>
+        </nav>
+        <div id="intro" class="arduino-content hidden">
+            <h3>Arduino'ya Giriş</h3>
+            <p>Arduino hakkında genel bilgiler ve başlangıç rehberi.</p>
+        </div>
+        <div id="projects" class="arduino-content hidden">
+            <h3>Projeler</h3>
+            <p>Arduino ile yapılmış projeler.</p>
+        </div>
+        <div id="tutorials" class="arduino-content hidden">
+            <h3>Eğitimler</h3>
+            <p>Arduino eğitimleri ve dersler.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Mehmet Karadaş. Tüm hakları saklıdır.</p>
+    </footer>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+        function showArduinoSection(sectionId) {
+            document.querySelectorAll('.arduino-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
